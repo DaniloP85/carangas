@@ -41,6 +41,15 @@ class CarangasUITests: XCTestCase {
     }
     
     func test_navegationToCarVisualization(){
+        let app = XCUIApplication()
+        app.launch()
         
+        let cell = app.tables["carsListTable"].cells.firstMatch
+        XCTAssertTrue(cell.waitForExistence(timeout: 3.0))
+        
+        let cellTitle = cell.staticTexts["carCellTitle"].label
+        
+        cell.tap()        
+        XCTAssertTrue(app.navigationBars[cellTitle].exists, "Tela Errada")
     }
 }

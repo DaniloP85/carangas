@@ -18,6 +18,11 @@ final class CarsTableViewController: UITableViewController {
 		return label
 	}()
     var viewModel: CarsListingViewModel?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.accessibilityIdentifier = "carsListTable"
+    }
 	
 	// MARK: - Super Methods
 	override func viewWillAppear(_ animated: Bool) {
